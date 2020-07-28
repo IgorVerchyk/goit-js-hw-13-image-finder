@@ -1,7 +1,7 @@
 import './styles.css';
 import refs from './js/refs';
 import apiServise from './js/apiServise';
-import { enable, disable, show, hide } from './js/loadButt';
+import buttActions from './js/loadButt';
 import insertImage from './js/markup';
 refs.searchForm.addEventListener('submit', submitHandler);
 refs.loadMoreButt.addEventListener('click', searchImage);
@@ -12,20 +12,18 @@ function submitHandler(event) {
   const teg = event.currentTarget;
   apiServise.searchQuery = event.currentTarget.elements.query.value;
 
-  searchImage();
   clearContainer();
   apiServise.resetPage();
+  searchImage();
   teg.reset();
 }
 
 function searchImage() {
-  disable();
-  apiServise.resetPage();
+  buttActions.disable();
   apiServise.searchImg().then(hits => {
     insertImage(hits);
-
-    show();
-    enable();
+    buttActions.show();
+    buttActions.enable();
 
     window.scrollTo({
       top: document.documentElement.scrollHeight,
@@ -33,7 +31,7 @@ function searchImage() {
     });
 
     if (hits.length < 12) {
-      hide();
+      buttActions.hide();
     }
   });
 }

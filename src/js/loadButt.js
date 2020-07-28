@@ -1,17 +1,21 @@
 import refs from './refs';
 
-export function enable() {
-  refs.loadMoreButt.removeAttribute('disabled');
-  refs.loadMoreButt.textContent = 'Load more';
-}
-export function disable() {
-  refs.loadMoreButt.setAttribute('disabled', 'disabled');
-  refs.loadMoreButt.textContent = 'Searching...';
-}
+export default {
+  enable() {
+    refs.loadMoreButt.removeAttribute('disabled');
+    refs.label.textContent = 'Load more';
+    refs.spiner.classList.add('is-hidden');
+  },
+  disable() {
+    refs.loadMoreButt.setAttribute('disabled', 'disabled');
+    refs.label.textContent = 'Searching...';
+    refs.spiner.classList.remove('is-hidden');
+  },
 
-export function show() {
-  refs.loadMoreButt.classList.remove('.hidden');
-}
-export function hide() {
-  refs.loadMoreButt.classList.add('.hidden');
-}
+  show() {
+    refs.loadMoreButt.classList.remove('is-hidden');
+  },
+  hide() {
+    refs.loadMoreButt.classList.add('is-hidden');
+  },
+};

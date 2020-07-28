@@ -3,8 +3,7 @@ const apiKey = '17651389-56d50551944c5e0543b25b372';
 export default {
   searchQuery: '',
   page: 1,
-  baseUrl: 'https://pixabay.com/api/?image_type=photo&orientation=horizontal',
-  async searchImg(inputValue) {
+  async searchImg() {
     const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.query}&page=${this.page}&per_page=12&key=${apiKey}`;
 
     const res = await fetch(url);

@@ -24,19 +24,21 @@
           type="text"
           name="query"
           autocomplete="off"
-          placeholder="Search images..."
+          placeholder="What`s we looking?..."
         />
       </form>
-      <button class="clearButt hidden"></button>
     </div>
     <div class="container">
       <ul class="gallery"></ul>
       <button
         type="button"
-        class="load-more--js hidden"
+        class="load-btn load-more--js is-hidden"
         data-action="load-more"
       >
         <span class="label">Load more</span>
+        <span class="spinner-grow text-light is-hidden" role="status">
+          <span class="sr-only">Loading...</span>
+        </span>
       </button>
     </div>
   </body>
